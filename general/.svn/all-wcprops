@@ -1,0 +1,407 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/130/trunk/Utilities/general
+END
+mynanrunmedian.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1/trunk/Utilities/general/mynanrunmedian.m
+END
+valestW.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1/trunk/Utilities/general/valestW.m
+END
+getSymbols.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1/trunk/Utilities/general/getSymbols.m
+END
+doNothing.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/doNothing.m
+END
+getWienerK.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1/trunk/Utilities/general/getWienerK.m
+END
+blh.m
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/1/trunk/Utilities/general/blh.m
+END
+ang.m
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/1/trunk/Utilities/general/ang.m
+END
+findnanequal.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/general/findnanequal.m
+END
+binLikeHist.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/binLikeHist.m
+END
+regressW_mike.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1/trunk/Utilities/general/regressW_mike.m
+END
+findSaccadesA.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/128/trunk/Utilities/general/findSaccadesA.m
+END
+d2gauss.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1/trunk/Utilities/general/d2gauss.m
+END
+hazard.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1/trunk/Utilities/general/hazard.m
+END
+xyLinefit.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/xyLinefit.m
+END
+nanrunstd.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/nanrunstd.m
+END
+testPlaySound.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1/trunk/Utilities/general/testPlaySound.m
+END
+plotWeightData.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/128/trunk/Utilities/general/plotWeightData.m
+END
+labIsscalar.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/labIsscalar.m
+END
+cleanMatlabPath.m
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/129/trunk/Utilities/general/cleanMatlabPath.m
+END
+rankdata.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/rankdata.m
+END
+getClassesWithMethod.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/1/trunk/Utilities/general/getClassesWithMethod.m
+END
+nearest_over.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/general/nearest_over.m
+END
+nanrunmean.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1/trunk/Utilities/general/nanrunmean.m
+END
+normestW_ll.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/normestW_ll.m
+END
+findSaccadesOld.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/1/trunk/Utilities/general/findSaccadesOld.m
+END
+dipTest.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1/trunk/Utilities/general/dipTest.m
+END
+poissMoment.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/poissMoment.m
+END
+assignin_here.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1/trunk/Utilities/general/assignin_here.m
+END
+cell2num.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/cell2num.m
+END
+fitLine2E.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/fitLine2E.m
+END
+gauss.m
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/1/trunk/Utilities/general/gauss.m
+END
+nanharmmean.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/nanharmmean.m
+END
+nearest_ang.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/nearest_ang.m
+END
+getSEP.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1/trunk/Utilities/general/getSEP.m
+END
+nestedF.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1/trunk/Utilities/general/nestedF.m
+END
+nanrungeomean.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/1/trunk/Utilities/general/nanrungeomean.m
+END
+nancells.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/nancells.m
+END
+nans.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1/trunk/Utilities/general/nans.m
+END
+isSuffix.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/isSuffix.m
+END
+getColors.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/getColors.m
+END
+nearest.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/128/trunk/Utilities/general/nearest.m
+END
+nanhist.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1/trunk/Utilities/general/nanhist.m
+END
+nangeomean.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1/trunk/Utilities/general/nangeomean.m
+END
+grid2mat.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/grid2mat.m
+END
+nanrunharmmean.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/1/trunk/Utilities/general/nanrunharmmean.m
+END
+concatStruct.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/general/concatStruct.m
+END
+kbdWaitForAnyKey.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1/trunk/Utilities/general/kbdWaitForAnyKey.m
+END
+labIsvector.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/labIsvector.m
+END
+testPlaySoundOld.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1/trunk/Utilities/general/testPlaySoundOld.m
+END
+normestW.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/normestW.m
+END
+circ.m
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1/trunk/Utilities/general/circ.m
+END
+getValRanks.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/getValRanks.m
+END
+mynanmean.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/mynanmean.m
+END
+num2plus.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/num2plus.m
+END
+findRuns.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/findRuns.m
+END
+SavGol.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1/trunk/Utilities/general/SavGol.m
+END
+nonanunique.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/32/trunk/Utilities/general/nonanunique.m
+END
+mynanmedian.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/mynanmedian.m
+END
+nanunique.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/nanunique.m
+END
+getTuning.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/general/getTuning.m
+END
+nanse.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/128/trunk/Utilities/general/nanse.m
+END
+myismember.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/1/trunk/Utilities/general/myismember.m
+END
+getTimeBins.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/general/getTimeBins.m
+END
+get_sn2k.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1/trunk/Utilities/general/get_sn2k.m
+END
+uniqueByFreq.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/general/uniqueByFreq.m
+END
+nanrunmedian.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/general/nanrunmedian.m
+END
+nanmode.m
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/1/trunk/Utilities/general/nanmode.m
+END

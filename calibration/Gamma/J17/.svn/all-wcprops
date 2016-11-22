@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/127/trunk/Calibration/Gamma/J17
+END
+makeGammaTable.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/127/trunk/Calibration/Gamma/J17/makeGammaTable.m
+END
+J17GammaCorrection.m
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/127/trunk/Calibration/Gamma/J17/J17GammaCorrection.m
+END
+J17Read.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/127/trunk/Calibration/Gamma/J17/J17Read.m
+END

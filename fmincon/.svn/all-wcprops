@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/128/trunk/Utilities/fmincon
+END
+getFIT_exp1U.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/fmincon/getFIT_exp1U.m
+END
+getFIT_pwl2.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/fmincon/getFIT_pwl2.m
+END
+valFIT_exp1U.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/fmincon/valFIT_exp1U.m
+END
+errFIT_exp1.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/128/trunk/Utilities/fmincon/errFIT_exp1.m
+END
+valFIT_pwl2.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/fmincon/valFIT_pwl2.m
+END
+getFIT_sf.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/fmincon/getFIT_sf.m
+END
+valFIT_sf.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/fmincon/valFIT_sf.m
+END
+errFIT_exp1U.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/1/trunk/Utilities/fmincon/errFIT_exp1U.m
+END
+errFIT_pwl2.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/fmincon/errFIT_pwl2.m
+END
+getFIT_exp1.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/128/trunk/Utilities/fmincon/getFIT_exp1.m
+END
+valFIT_exp1.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/1/trunk/Utilities/fmincon/valFIT_exp1.m
+END
+errFIT_sf.m
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/1/trunk/Utilities/fmincon/errFIT_sf.m
+END
