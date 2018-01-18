@@ -1,4 +1,4 @@
-function trainingData = FS_getDotsTrainingData(monk)
+function dat_ = FS_getDotsTrainingDataOld(monk)
 %
 % Collects data from Patrick & Jeff's data matrices.
 %   If no monk given, creates and saves to disk
@@ -28,9 +28,20 @@ function trainingData = FS_getDotsTrainingData(monk)
 %   17  Stim flag (0=none; 1=ineffective; 2=effective)
 %   18  Deviation (raw)
 %   19  Deviation (z-score)
+%   20  Deviation (not detrended)
+%   21  raw end x
+%   22  raw end y
+%   23  rms end x
+%   24  rms end y
+%   25  stim lat
+%   26  vol2 flag
+%   27  stim curve
+%   28  eye velocity during dots
+%   29  eye velocity during dots in direction of motion
+%
 
 if nargin < 1
-   monk = [];
+    monk = [];
 end
 
 % get lab dirname
@@ -42,38 +53,37 @@ dirname = '/Users/jigold/GoldWorks/Local/Data/Projects/DotsTrainingData';
 
 % cell array of file names, etc
 mC = { ...
-   'Ava',     'av', 'AvaData', 'AvaTrain',    @read_Patrick_data; ...
-   'Atticus', 'at', 'AttData', 'AttTrain',    @read_Patrick_data; ...
-   'Cyrus',   'cy', 'CyData',  'CyTrain',     @read_Jeff_data; ...
-   'Zsa Zsa', 'zz', 'ZZData',  'ZZTrain',     @read_Jeff_data; ...
-   };
-%    'Samson',  'sa', 'Samson',  'SamsonNew', @read_UW_data; ...
-%    'Isaiah',  'is', 'Isaiah',  'IsaiahNew', @read_UW_data; ...
-%    };
+    'Ava',     'av', 'AvaData', 'AvaNew',    @read_Patrick_data; ...
+    'Atticus', 'at', 'AttData', 'AttNew',    @read_Patrick_data; ...
+    'Cyrus',   'cy', 'CyData',  'CyNew',     @read_Jeff_data; ...
+    'Zsa Zsa', 'zz', 'ZZData',  'ZZNew',     @read_Jeff_data; ...    
+    'Samson',  'sa', 'Samson',  'SamsonNew', @read_UW_data; ...
+    'Isaiah',  'is', 'Isaiah',  'IsaiahNew', @read_UW_data; ...
+    };
 
 % loop through the monks
 for ii = 1:size(mC, 1)
-   
-   dataFile = fullfile(dirname, [mC{ii, 3} '.mat']);
-   newFile  = fullfile(dirname, [mC{ii, 4} '.mat']);
-   
-   if isempty(monk) || (ischar(monk) && strcmp(monk, 'redo')) || ...
-         (strncmpi(monk, mC{ii,1}, 2) && ...
-         (~exist(newFile, 'file') || ...
-         isempty(whos('-file', newFile))))
-      % make data file
-      disp(['Loading data from ' mC{ii, 1} '...'])
-      trainingData = feval(mC{ii, 5}, dataFile);
-      save(newFile, 'trainingData');
-      if ~isempty(monk)
-         return
-      end
-      
-   elseif strncmpi(monk, mC{ii, 2}, 2)
-      % just get data from file
-      load(newFile);
-      return
-   end
+
+    dataFile = fullfile(dirname, [mC{ii, 3} '.mat']);
+    newFile  = fullfile(dirname, [mC{ii, 4} '.mat']);
+
+    if isempty(monk) || (ischar(monk) && strcmp(monk, 'redo')) || ...
+            (strncmpi(monk, mC{ii,1}, 2) && ...
+            (~exist(newFile, 'file') || ...
+            isempty(whos('-file', newFile))))
+        % make data file
+        disp(['Loading data from ' mC{ii, 1} '...'])
+        dat_ = feval(mC{ii, 5}, dataFile);
+        save(newFile, 'dat_');
+        if ~isempty(monk)
+            return
+        end
+
+    elseif strncmpi(monk, mC{ii, 2}, 2)
+        % just get data from file
+        load(newFile);
+        return
+    end
 end
 
 %%%
@@ -102,7 +112,6 @@ end
 %   19  num rewards
 %   20  trial gap
 %   21  fix time
-
 %   22  vol v max
 %   23  vol v avg
 %   24  stim v max
@@ -125,8 +134,7 @@ load(file_in);
 
 % get good trials (only error/correct)
 Lgood = data_(:,2) >= 0 & ~isnan(data_(:,6));
-%dat_  = data_(Lgood, [1 7 2 19 4 5 3 3 6 15 20 21 21 23 22 22 8 9 9 10 11:14 16:18 35:36]);
-dat_  = data_(Lgood, [1 7 2 19 4 5 3 3 6 15 20 21 21 21 21 21 8 9 10]);
+dat_  = data_(Lgood, [1 7 2 19 4 5 3 3 6 15 20 21 21 23 22 22 8 9 9 10 11:14 16:18 35:36]);
 
 % re-set task type index
 Lfix = dat_(:,2) == 2;
@@ -163,14 +171,23 @@ dat_(L0,8) = 0;
 inds       = (1:size(data_,1))';
 dat_(:,13) = [1; diff(inds(Lgood))];
 
-dat_(:,[12 14 15 16]) = nan;
+% compute deviations on non de-trended data
+dat_(:,20) = nan;
+sessions   = nonanunique(dat_(:,1));
+for ss = 1:length(sessions)
+    Lses   = dat_(:,1) == sessions(ss) & isfinite(dat_(:,15));
+    dat_(Lses, 20) = dot( ...
+        [cos(dirs(Lses)*pi/180) sin(dirs(Lses)*pi/180)], ...
+        [dat_(Lses,21)-nanmean(dat_(Lses,21)) dat_(Lses,22)-nanmean(dat_(Lses,22))], 2);
+end
+dat_(dat_(:,3)==0, 20) = -dat_(dat_(:,3)==0, 20);
 
 % compute accuracy
-% ts          = data_(Lgood, [30 31 26:29]);
-% Lc          = dat_(:,3) == 1;
-% Le          = dat_(:,3) == 0;
-% dat_(Lc,16) = sqrt((ts(Lc,1)-ts(Lc,3)).^2 + (ts(Lc,2)-ts(Lc,4)).^2);
-% dat_(Le,16) = sqrt((ts(Le,1)-ts(Le,5)).^2 + (ts(Le,2)-ts(Le,6)).^2);
+ts          = data_(Lgood, [30 31 26:29]);
+Lc          = dat_(:,3) == 1;
+Le          = dat_(:,3) == 0;
+dat_(Lc,16) = sqrt((ts(Lc,1)-ts(Lc,3)).^2 + (ts(Lc,2)-ts(Lc,4)).^2);
+dat_(Le,16) = sqrt((ts(Le,1)-ts(Le,5)).^2 + (ts(Le,2)-ts(Le,6)).^2);
 
 %%%
 %
@@ -263,9 +280,9 @@ function dat_ = read_UW_data(file_in)
 load('/Users/jigold/GoldWorks/Mirror_lab/Data/Archive/UW/fefstim/pro/misc/pro_data.mat');
 [p,n,e,v] = fileparts(file_in);
 if strcmp(n, 'Isaiah')
-   Lm = data_(:,2) == 1;
+    Lm = data_(:,2) == 1;
 else
-   Lm = data_(:,2) == 2;
+    Lm = data_(:,2) == 2;
 end
 
 % get good trials (only error/correct)
@@ -319,11 +336,11 @@ tdirs       = dirs;
 tdirs(Lerr) = tdirs(Lerr) + 180;
 txy         = 8.*[cos(tdirs*pi/180) sin(tdirs*pi/180)];
 for ss = 1:length(sessions)
-   Lses = dat_(:,1) == sessions(ss) & isfinite(dat_(:,18));
-   dat_(Lses,19) = zscore(dat_(Lses,18));
-   dat_(Lses,20) = dot( ...
-      [cos(dirs(Lses)*pi/180) sin(dirs(Lses)*pi/180)], ...
-      [dat_(Lses,21)-nanmean(dat_(Lses,21)) dat_(Lses,22)-nanmean(dat_(Lses,22))], 2);
-   dat_(Lses,16) = sqrt(sum((txy(Lses,:)-dat_(Lses,21:22)).^2,2));
+    Lses = dat_(:,1) == sessions(ss) & isfinite(dat_(:,18));
+    dat_(Lses,19) = zscore(dat_(Lses,18));
+    dat_(Lses,20) = dot( ...
+        [cos(dirs(Lses)*pi/180) sin(dirs(Lses)*pi/180)], ...
+        [dat_(Lses,21)-nanmean(dat_(Lses,21)) dat_(Lses,22)-nanmean(dat_(Lses,22))], 2);
+    dat_(Lses,16) = sqrt(sum((txy(Lses,:)-dat_(Lses,21:22)).^2,2));
 end
 dat_(Lstim&dat_(:,3)==0,20) = -dat_(Lstim&dat_(:,3)==0,20);

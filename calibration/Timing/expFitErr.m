@@ -1,4 +1,4 @@
-function err_ = expFitErr(fits)
+function err_ = expFitErr(fits, data)
 %
 % fits are:
 %   1 .. tStart
@@ -9,8 +9,6 @@ function err_ = expFitErr(fits)
 % data columns are:
 %   time
 %   voltage
-
-global data
 
 vals = expFitVal(fits(1), fits(2), fits(3), fits(4), data(:,1));
 err_ = sum((data(:,2)-vals).^2);

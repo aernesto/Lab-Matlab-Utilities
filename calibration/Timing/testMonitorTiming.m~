@@ -122,12 +122,9 @@ dotsTheScreen.closeWindow();
 aIn.close();
 
 %% Plot raw data
-
-% to scale the data
 mindat = nanmin(reshape(analogData(:,2,:,:),[],1));
 maxdat = nanmax(reshape(analogData(:,2,:,:),[],1));
 
-% for the exponential fits
 inits = [40 0.3 10 0.35; 0 0 0.1 0; 100 1 20 1];
 fits  = nans(NUM_REPS_PER_LUMINANCE, size(inits,2), 2, NUM_LUMINANCE_STEPS);
 
@@ -162,31 +159,20 @@ for ll = 1:NUM_LUMINANCE_STEPS
          [Y,I]   = max(abs(diff(nanrunmean(volts,5))));
          tStartg = min(times(I));
          
-         % to pass data
          myFun = @(x)expFitErr(x, [times volts]);
          
-         % do the fit with patternsearch
          ff = patternsearch(myFun,...
             [tStartg yStartg 3 yEndg],[],[],[],[],inits(2,:),inits(3,:),[], ...
             psoptimset('Display', 'off'));
          fits(rr,:,dd,ll) = ff;
          
-         % plot the fit
          plot(times, expFitVal(ff(1), ff(2), ff(3), ff(4), times), 'r-');
          axis([0 120 mindat*.98 maxdat*1.02]);
       end
-      
-      % Report fits in the title
-      title(sprintf('Lum = %.2f->%.2f, delay=%.2f [%.2f %.2f], tau=%.2f [%.2f %.2f]', ...
-         lums(1), lums(2), ...
-         nanmedian(fits(:,1,dd,ll)), nanmin(fits(:,1,dd,ll)), nanmax(fits(:,1,dd,ll)), ...
-         nanmedian(fits(:,3,dd,ll)), nanmin(fits(:,3,dd,ll)), nanmax(fits(:,3,dd,ll))));
-      
-      % label axes for the bottom plots
-      if ll == NUM_LUMINANCE_STEPS
-         xlabel('Time since reported stimulus onset (msec)');
-         ylabel('Voltage');
-      end      
+      title(sprintf('Lum = %.2f->%.2f, delay=%.2f±%.2f, tau=%.2f±%.2f', ...
+         lums(1), lums(2), nanmean(fits(:,1,dd,ll)), nanse(fits(:,1,dd,ll)), ...
+         nanmean(fits(:,3,dd,ll)), nanse(fits(:,3,dd,ll))))
+      xlabel('Time since reported stimulus on
    end
 end
 
