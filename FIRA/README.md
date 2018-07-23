@@ -17,7 +17,8 @@ A typical experiment contains a number of streams of data and the spm tells Matl
 
 A single standard FIRA struct makes it easier to analyze experimental data from a range of experiments using the same set of tools that are built around FIRA.
 
-*Stored data file*
+_Stored data file_
+
 If the data is stored in a plx file, the data has to be processed or sorted into an intermediate .nex before it can be read into Matlab. The nex files are read and interpreted in Matlab by a collection of routines in the FIRA\build directory. In a nutshell, a number of necessary arguments, along with the filename and path of the nex file are passed to these routines (see make**_FIRA.m, bNex.m and bFile.m) which build FIRA from the nex file.
 
 *Online Analysis*
