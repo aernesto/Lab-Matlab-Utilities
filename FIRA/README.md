@@ -28,7 +28,7 @@ For online analysis, Matlab needs to connect to the plexon MAP server, which str
 How to write a spm in Matlab to generate FIRA
 ---------------------------------------------
 
-*Introduction*
+**Introduction**
 
 A spm is a Matlab m-file that provides a description for interpreting the contents of a nex file into a 'FIRA' structure in Matlab. The FIRA structure is a 'standardized' structure the Gold lab uses to extract, use and analyze data. The spm can either be used to either analyze the data within Matlab to make '.mat' files that contain the relevant data from that session OR can be used online while the subject doing an experiment for task relevant real-time analysis.
 
@@ -41,7 +41,7 @@ The spm file contains 3 sections, each referring to a different mode in which th
   
   NOTE: the commands from the spm will always be in italics and the docs will be in regular type.
 
-*Header*
+**Header**
 
 global FIRA
 [declare FIRA to be a global structure that is accessible to all functions and scripts, including the spm.]
@@ -49,7 +49,8 @@ global FIRA
 declareEC_ecodes
 [declares all the ecodes that are being used in your experiment. If you are making a new spm, you should make sure that the ecodes that rex drops in your paradigm are declared in this file.]
 
-*func 'init'*
+**func 'init'**
+
 The first mode/func is called when the argument 'init' is passed to the spm. The 'init' func is usually called from buildFIRA_init and it returns to buildFIRA_init descriptors or arguments that are then converted by buildFIRA_init into actual dataType objects used to build FIRA.spm and parse data into it. All the hard/dirty work is done by buildFIRA_init, which uses the arguments passed to it from the spm to fill in all the fields of FIRA corresponding to "dataTypes". The "dataTypes" specified by spm760 are described in more detail below.
 
 The init section starts with a declaration of some useful markers that are used to interpret ecodes pairs:
@@ -127,11 +128,27 @@ Look at getEC_tagged.m for more full details.
 
 This section has ecodes that are setup here but the data for these ecodes is only filled when the 'trial' mode/func of the spm is called.
 
-func 'trial' 
-This func/mode is where data corresponding to ecodes in the 'compute' section of the spm are filled in. The code in this section reads data from FIRA, computes the ecode data and fills the computed data into corresponding FIRA.ecodes.data??In the example below, the correct target is computed and filled into the column for cor_targ in FIRA.ecodes.data??dot_val = getFIRA_ec(tti, {'dot_dir'}); % dot_val = value of ecode 'dot_dir' for trial #tti??    if dot_val==0?        setFIRA_ec(tti, {'cor_targ'}, 2); % if the condition is true, then set value of ecode 'cor_targ' for trial #tti to 2?    elseif dot_val==180?        setFIRA_ec(tti, {'cor_targ'}, 1); % elseif the condition is true, then set value of ecode 'cor_targ' for trial #tti to 1?    end??This mode/func is used to compute any ecodes that are not obvious, i.e. are not contained in the nex file, but have to be computed for every trial. If the data for an ecode is already present in the nex file, then the ecode should not be computed here, instead used the extract section of the 'init' func. If the computation for an ecode is general and can be done for an entire session at once, it should be computed in the 'cleanup' func/mode.
-func 'cleanup'
+**func 'trial'**
+
+This func/mode is where data corresponding to ecodes in the 'compute' section of the spm are filled in. The code in this section reads data from FIRA, computes the ecode data and fills the computed data into corresponding FIRA.ecodes.data??In the example below, the correct target is computed and filled into the column for cor_targ in FIRA.ecodes.data
+
+dot_val = getFIRA_ec(tti, {'dot_dir'}); % dot_val = value of ecode 'dot_dir' for trial #tti
+
+if dot_val==0
+  setFIRA_ec(tti, {'cor_targ'}, 2); % if the condition is true, then set value of ecode 'cor_targ' for trial #tti to 2
+elseif dot_val==180
+  setFIRA_ec(tti, {'cor_targ'}, 1); % elseif the condition is true, then set value of ecode 'cor_targ' for trial #tti to 1
+end
+
+This mode/func is used to compute any ecodes that are not obvious; i.e., are not contained in the nex file, but have to be computed for every trial. If the data for an ecode is already present in the nex file, then the ecode should not be computed here, instead used the extract section of the 'init' func. If the computation for an ecode is general and can be done for an entire session at once, it should be computed in the 'cleanup' func/mode.
+
+**func 'cleanup'**
+
 The 'cleanup' func/mode is for anything you need to do at the end of building a FIRA. Typically data that donot have to be computed individually for each trial are computed in the this mode.
 e.g. the code below collapses angles into a 0 to 360 range for all trials for ecode 'dot_dir'
 
-if ~isempty(FIRA.ecodes.data)?        col = getFIRA_ecc('dot_dir');?        FIRA.ecodes.data(:, col) = mod(FIRA.ecodes.data(:, col), 360);?end
+if ~isempty(FIRA.ecodes.data)
+  col = getFIRA_ecc('dot_dir');
+  FIRA.ecodes.data(:, col) = mod(FIRA.ecodes.data(:, col), 360);
+end
 
