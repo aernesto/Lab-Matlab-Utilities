@@ -1,0 +1,13 @@
+[
+	{	
+		"flavor": "Adrian_tests",
+		"hook": "",
+		"name": "lmu_forked",
+		"pathPlacement": "append",
+		"subfolder": "",
+		"toolboxRoot": "",
+		"type": "git",
+		"update": "",
+		"url": "https://github.com/aernesto/Lab-Matlab-Utilities.git"
+	}
+]
